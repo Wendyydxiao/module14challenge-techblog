@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Why MVC is so important",
+    "content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic.",
+    "username": "amy1",
+    "comments": [
+      {
+        "username": "tom2",
+        "content": "Nice notes!"
+      }
+    ]
+  },
+  {
+    "title": "Authentication vs. Authorization",
+    "content": "There is a difference between authentication and authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system.",
+    "username": "tom2",
+    "comments": [
+      {
+        "username": "amy1",
+        "content": "Good read!"
+      },
+      {
+        "username": "ben3",
+        "content": "Interesting article."
+      }
+    ]
+  },
+  {
+    "title": "Object-Relational Mapping",
+    "content": "I have really loved learning about ORM. It's really simplified the way I creat queries in SQL!",
+    "username": "john5",
+    "comments": [
+      {
+        "username": "mary4",
+        "content": "Good sharing!"
+      }
+    ]
+  },
+  {
+    "title": "What is PostgreSQL?",
+    "content": "PostgreSQL is an open-source object-relational database system with an emphasis on extensibility and standards compliance.",
+    "username": "mary4",
+    "comments": [
+      {
+        "username": "tom2",
+        "content": "Like it!"
+      }
+    ]
+  }
+
+]
+

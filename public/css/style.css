@@ -1,56 +1,6 @@
-/* public/css/style.css */
 body {
-  background-color: #d5e8d4;
   font-family: Arial, sans-serif;
-}
-
-.login-container {
-  width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #eaf6e8;
-  border: 1px solid #3e3e3e;
-}
-
-h2 {
-  text-align: center;
-  color: #3e3e3e;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  color: #3e3e3e;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.btn-login {
-  background-color: #3e3e3e;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.btn-link {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-.btn-link:hover {
-  text-decoration: underline;
+  background-color: #e8f4e8;
 }
 
 nav {
@@ -61,83 +11,32 @@ nav {
 }
 
 nav a {
-  color: #d5e8d4;
+  color: #fff;
   margin: 0 15px;
   text-decoration: none;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
-/* public/css/style.css */
-body {
-  background-color: #d5e8d4;
-  font-family: Arial, sans-serif;
-}
-
-.login-container, .signup-container {
-  width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #eaf6e8;
-  border: 1px solid #3e3e3e;
-}
-
-h2 {
-  text-align: center;
-  color: #3e3e3e;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  color: #3e3e3e;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+.blog {
+  background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 0;
 }
 
-.btn-signup, .btn-login {
+button {
   background-color: #3e3e3e;
-  color: #fff;
+  color: white;
   padding: 10px;
   border: none;
-  border-radius: 5px;
-  width: 100%;
+  cursor: pointer;
 }
 
-.btn-link {
-  color: #0066cc;
-  text-decoration: none;
+button:hover {
+  background-color: #555;
 }
 
-.btn-link:hover {
-  text-decoration: underline;
-}
-
-nav {
-  background-color: #2b2b2b;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav a {
-  color: #d5e8d4;
-  margin: 0 15px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}

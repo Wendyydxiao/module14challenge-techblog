@@ -1,24 +1,36 @@
-<!-- views/layouts/main.handlebars -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
-
   <nav>
     <a href="/">Home</a>
-    <a href="/dashboard">Dashboard</a>
-    <a href="/login">Login</a>
-    <a href="/logout">Logout</a>
+   <nav>
+    {{#if loggedIn}}
+       <a href="/profile">Dashboard</a>
+       <form action="/user/logout" method="POST">
+         <button type="submit">Logout</button>
+       </form>
+    {{else}}
+       <a href="/user/login">Login</a>
+       <a href="/user/signup">Signup</a>
+    {{/if}}
+  </nav>
+
   </nav>
 
   <div class="container">
-    {{{body}}} <!-- Handlebars content block -->
+    {{{body}}}
   </div>
 
+  {{#if loggedIn}}
+    <script src="/public/js/logout.js"></script>
+  {{else}}
+    <script src="/public/js/login.js"></script>
+  {{/if}}
 </body>
 </html>
