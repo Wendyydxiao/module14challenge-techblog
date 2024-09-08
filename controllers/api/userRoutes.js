@@ -1,23 +1,32 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect('/');
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.render('login');
 });
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const{username, password} = req.body;
+    const userData = await User.findOne({ where: { username } });
 
     if (!userData) {
       res.status(400).json({ message: 'No username found!' });
       return;
     }
 
-    const validPassword = userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
@@ -35,35 +44,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect('/');
-  }
-  res.render('signup'); 
-});
 
-
-router.post('/signup', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.loggedIn = true;
-
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect('/');
-  }
-  res.render('logout'); 
-});
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
