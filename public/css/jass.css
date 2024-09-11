@@ -35,6 +35,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color:white;
 }
 
 /* Grouping content
@@ -420,12 +421,12 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  color: #3a2a28;
   text-decoration: none;
 }
 
 a:hover {
-  color: #065b83;
+  color: #fff;
   text-decoration: underline;
 }
 

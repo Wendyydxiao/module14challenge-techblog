@@ -5,7 +5,7 @@ document.querySelector('#new-comment-form').addEventListener('submit', async (ev
     const blogId = window.location.pathname.split('/').pop(); 
   
     if (content) {
-      const response = await fetch('/api/comments', {
+      const response = await fetch('/api/blogs/comments', {
         method: 'POST',
         body: JSON.stringify({
           content,

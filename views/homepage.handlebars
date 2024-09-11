@@ -1,17 +1,10 @@
-<h1>Blogs</h1>
 <ul>
-  {{#each blogs}}
+  {{#each blogsData}}
     <li>
       <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
       <p>{{this.content}}</p>
-      <p>Written by: {{this.User.username}}</p>
+      <span class="author">Written by: {{this.User.username}}</span>
     </li>
   {{/each}}
 </ul>
 
-{{#if loggedIn}}
-  <a href="/profile">Go to Profile</a>
-  <button id="logout">Logout</button>
-
-{{/if}}
-<script src="/js/profile.js"></script>

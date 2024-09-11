@@ -1,37 +1,23 @@
 const router = require('express').Router();
 const { Blog, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
-router.get('/', async (req, res) => {
-  try {
-    const blogData = await Blog.findAll({
-      include: [{ model: Comment }],
-    });
-    res.status(200).json(blogData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/blog/:id', async (req, res) => {
-  try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [Comment, User],
-    });
-
-    if (!blogData) {
-      res.status(404).json({ message: 'No blog found with this id!' });
-      return;
-    }
-
-    res.status(200).json(blogData, user);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get('/blog', async (req, res) => {
+//   try {
+//     const blogData = await Blog.findAll({
+//       include: [{ model: Comment }],
+//     });
+//     res.status(200).json(blogData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
-router.post('/', async (req, res) => {
+
+
+router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
       title: req.body.title,
@@ -45,7 +31,17 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const newBlog = await Blog.destroy({where: {id: req.params.id}});
+
+    res.status(200).json(newBlog);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/comments', async (req, res) => {
   try {
     const newComment = await Comment.create({
       content: req.body.content,
