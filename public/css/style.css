@@ -26,6 +26,10 @@
   
 }
 
+a, a:visited {
+  color:#fff;
+}
+
 .login>p {
   color: white;
   margin-right: 20px;
